@@ -70,7 +70,7 @@
     lq.bar(freqs, goods, fill: psu-electric-green),
   )
 
-  #psu-block(title: "Good voicing")[ 
+  #psu-block(title: "Good voicing", fill-color: psu-electric-green)[
     Good voicing is when the pipe *sounds good*, and the sound of the fundamental is clear and pleasant.
     It often has a monotone decay.
   ]
@@ -86,7 +86,7 @@
     lq.bar(freqs, bads, fill: psu-red),
   )
 
-  #psu-alert-block(title: "Bad voicing")[
+  #psu-block(title: "Bad voicing", fill-color: psu-red)[
     Bad voicing is when the pipe *sounds off*, and the sound of the fundamental is not clear.
     It often has a noisy decay, and the fundamental gets _shifted_ to a different frequency.
   ]
@@ -176,7 +176,7 @@ Thus, by assuming _the velocity from the system is known_, we can modify the Isi
   Let $ v_serif("toe") = frac(A_serif("system"), A_serif("toe")) v_serif("system") $ be the velocity of the wind jet at the toe-hole of the pipe;
   then the *flow-informed Ising number* is defined as:
   $
-  sans(I)_sans("flow-informed") = frac(v_serif("system") A_serif("system"),omega A_serif("system") ) sqrt(frac(d,h^3))
+  sans(I)_sans("flow-informed") = frac(v_serif("system") A_serif("system"),omega A_serif("toe") ) sqrt(frac(d,h^3))
   = frac(A_serif("system"),omega A_serif("toe") ) sqrt(frac(2 P d,rho h^3)).
   $
 ]
@@ -237,7 +237,69 @@ Thus, by assuming _the velocity from the system is known_, we can modify the Isi
   ]
 ]
 
-//TODO here
+#pagebreak()
+
+#columns(2)[
+  #figure(
+    image(
+      "PP.png",
+      format: "png",
+      width: 13cm,
+    ),
+    caption: "Correlation matrix of the predictors.",
+  )
+
+  #colbreak()
+
+  #figure(
+    image(
+      "PR.png",
+      format: "png",
+      width: 13cm,
+    ),
+    caption: "Correlation matrix of the predictors and the response.",
+  )
+]
+
+// #{
+//   let corMatPredPred = csv("../../Data/CorMatPredPred.csv", row-type: dictionary)
+//   let rowPP = ()
+//   let dataPP = ()
+//   for i in range(corMatPredPred.len()) {
+//     rowPP.push(corMatPredPred.at(i).label)
+//   }
+//   for i in range(corMatPredPred.len()) {
+//     let temp = ()
+//     for j in rowPP {
+//       temp.push(float(corMatPredPred.at(i).at(j)))
+//     }
+//     dataPP.push(temp)
+//   }
+// 
+//   figure(
+//     scale(x: 130%, y: 130%)[
+//       #v(1cm)
+//       #lq.diagram(
+//         lq.colormesh(
+//           range(rowPP.len()),
+//           range(rowPP.len()),
+//           dataPP,
+//           interpolation: "pixelated",
+//         ),
+//         xlabel: [Predictors],
+//         ylabel: [Predictors],
+//       )
+//       #v(1cm)
+//     ],
+//     caption:"Correlation matrix of the predictors.",
+//   )
+// }
+// #{
+//   let corMatPredResp = csv("../../Data/CorMatPredResp.csv", row-type: dictionary)
+//   let rowPR = ()
+//   let colPR = ()
+//   let dataPR = ()
+// }
 
 #pagebreak()
 
